@@ -1,9 +1,9 @@
 ## Questions
 1. What are the strengths and weaknesses of each implementation? When is each fast or slow?
 
-  The Python list queue should perform better when there are more enqueues, because enqueues are O(1) and dequeues are O(N) (because the entire list needs to be shifted when the first item is removed). * Why does this not seem true in the results?
+  The Python list queue is slower when there are more enqueues. This is because even though enqueues are O(1) and dequeues are O(N) (because the entire list needs to be shifted when the first item is removed), the Python list queue overall gets much bigger when there are more enqueues. So even though there are proportionally fewer dequeues, each dequeue has to shift over longer lists, which causes longer runtimes.
 
-  The linked list queue performs much better when there are more dequeues, although both are O(N). This may be because enqueueing requires the creation of a new linked list node.
+  The linked list queue performs much better when there are more dequeues, although both are O(1). This may be because enqueueing requires the creation of a new linked list node.
 
   The ring buffer queue performs worse when there are many more enqueues than dequeues, because it needs to take time to double in size every time it fills up its array.
 
